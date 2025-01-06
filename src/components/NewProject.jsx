@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 import { useRef } from "react";
 import Modal from "./Modal";
-export default function NewProject({ onAdd }) {
+export default function NewProject({ onAdd, onCancle }) {
   const modalRef = useRef();
   const titleRef = useRef();
   const descRef = useRef();
@@ -25,14 +25,21 @@ export default function NewProject({ onAdd }) {
   return (
     <>
       <Modal buttonCaption="Okey" ref={modalRef}>
-        <h2>Invalid Input</h2>
-        <p>Oops...look like you forget to enter a value </p>
-        <p>Please make sure you enter a valid data for each input</p>
+        <h2 className="font-bold text-stone-700 text-xl my-4">Invalid Input</h2>
+        <p className="text-stone-600 mb-4">
+          Oops...look like you forget to enter a value{" "}
+        </p>
+        <p className="text-stone-600 mb-4">
+          Please make sure you enter a valid data for each input
+        </p>
       </Modal>
       <div className="w-[35rem] mt-16">
         <menu className="flex justify-end items-center gap-4 my-4">
           <li>
-            <button className="text-stone-800 hover:text-stone-950">
+            <button
+              className="text-stone-800 hover:text-stone-950"
+              onClick={onCancle}
+            >
               cancle
             </button>
           </li>
