@@ -1,4 +1,4 @@
-export default function SelectedProject({ project }) {
+export default function SelectedProject({ project, onDelete }) {
   let formatedDate = new Date(project.dueDate).toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
@@ -10,7 +10,10 @@ export default function SelectedProject({ project }) {
       <header className="border-b-2 border-stone-300 pb-4 mb-4">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold mb-2">{title}</h1>
-          <button className="text-stone-600 hover:text-stone-950">
+          <button
+            className="text-stone-600 hover:text-stone-950"
+            onClick={onDelete}
+          >
             Delete
           </button>
         </div>
